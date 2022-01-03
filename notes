@@ -1,0 +1,28 @@
+truffle init
+
+make todoList
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.4.22 <0.9.0;
+
+contract TodoList{
+    uint public taskCount = 0;
+    
+}
+
+make TodoList Migration
+const TodoList = artifacts.require("TodoList");
+
+module.exports = function (deployer) {
+  deployer.deploy(TodoList);
+};
+
+truffle compile
+
+truffle migrate
+
+truffle console
+truffle(development)> todoList = await TodoList.deployed()
+todoList
+todoList.address()
+taskCount= await todoList.taskCount()
+taskCount.toNumber()
